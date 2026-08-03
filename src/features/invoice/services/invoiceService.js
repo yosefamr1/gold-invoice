@@ -1,4 +1,5 @@
-const API_URL = "http://desktop-iqtssoj:5000";
+// const API_URL = "http://desktop-iqtssoj:5000";
+const API_URL = "http://192.168.1.15:5000";
 
 export const createInvoice = async (invoice) => {
   const response = await fetch(`${API_URL}/invoice`, {

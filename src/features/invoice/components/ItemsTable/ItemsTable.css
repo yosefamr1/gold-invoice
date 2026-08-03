@@ -1,0 +1,44 @@
+.invoice-table{
+
+width:100%;
+
+margin-top:40px;
+
+border-collapse:collapse;
+
+}
+
+.invoice-table th,
+.invoice-table td{
+
+border:1px solid #ddd;
+
+padding:12px;
+
+text-align:center;
+
+}
+
+.invoice-table th{
+
+background:#2b7fff;
+
+color:white;
+
+}
+
+.delete-btn{
+
+background:red;
+
+color:white;
+
+border:none;
+
+padding:8px 15px;
+
+border-radius:5px;
+
+cursor:pointer;
+
+}

@@ -1,0 +1,44 @@
+.item-form{
+    margin-top:40px;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+
+    gap:20px;
+    align-items:end;
+}
+
+.add-btn{
+    height:45px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+
+    background:#2b7fff;
+    color:white;
+    font-size:16px;
+}
+
+.add-btn:hover{
+    background:#1565d8;
+}
+
+@media(max-width:1000px){
+
+.item-form{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:650px){
+
+.item-form{
+
+grid-template-columns:1fr;
+
+}
+
+}

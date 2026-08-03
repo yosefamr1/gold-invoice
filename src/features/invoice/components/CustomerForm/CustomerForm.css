@@ -1,0 +1,33 @@
+.customer-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-weight: bold;
+}
+
+.input-group input {
+  padding: 12px;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #2b7fff;
+}
+
+@media (max-width: 700px) {
+  .customer-section {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "./ItemForm.css";
+// import "./ItemForm.css";
 
 function ItemForm({ setItems }) {
   const [item, setItem] = useState({
@@ -79,11 +79,12 @@ function ItemForm({ setItems }) {
   };
 
   return (
-    <div className="item-form">
-      <div className="input-group">
-        <label>كود المجموعة</label>
+    <div className="flex flex-col sm:flex-row flex-wrap">
+      <div className="flex flex-col p-1">
+        <label>كود المجموعة :</label>
 
         <input
+        className="bg-white rounded-2xl w-24 p-1.5"
           ref={groupCodeRef}
           name="groupCode"
           maxLength={3}
@@ -99,10 +100,11 @@ function ItemForm({ setItems }) {
         />
       </div>
 
-      <div className="input-group">
-        <label>كود الصنف</label>
+      <div className="flex flex-col p-1 ">
+        <label>كود الصنف :</label>
 
         <input
+        className="bg-white rounded-2xl w-24 p-1.5 "
           ref={itemCodeRef}
           name="itemCode"
           value={item.itemCode}
@@ -111,10 +113,11 @@ function ItemForm({ setItems }) {
         />
       </div>
 
-      <div className="input-group">
-        <label>العدد</label>
+      <div className="flex flex-col p-1">
+        <label>العدد :</label>
 
         <input
+        className="bg-white rounded-2xl w-24 p-1.5"
           ref={quantityRef}
           name="quantity"
           type="number"
@@ -124,10 +127,11 @@ function ItemForm({ setItems }) {
         />
       </div>
 
-      <div className="input-group">
-        <label>الوزن</label>
+      <div className="flex flex-col p-1 ">
+        <label>الوزن :</label>
 
         <input
+        className="bg-white rounded-2xl w-24 p-1.5"
           ref={weightRef}
           name="weight"
           type="number"
@@ -138,10 +142,11 @@ function ItemForm({ setItems }) {
         />
       </div>
 
-      <div className="input-group">
-        <label>القيمة</label>
+      <div className="flex flex-col p-1">
+        <label>القيمة :</label>
 
         <input
+        className="bg-white rounded-2xl w-40 p-1.5"
           ref={priceRef}
           name="price"
           type="number"
@@ -156,7 +161,7 @@ function ItemForm({ setItems }) {
         />
       </div>
 
-      <button className="add-btn" onClick={handleAddItem}>
+      <button className="bg-blue-500 text-amber-50 w-32 rounded-3xl mx-auto mt-6 text-xl p-1.5 hover:bg-blue-700 cursor-pointer" onClick={handleAddItem}>
         إضافة الصنف
       </button>
     </div>

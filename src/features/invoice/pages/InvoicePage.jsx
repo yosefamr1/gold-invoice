@@ -73,8 +73,8 @@ function InvoicePage() {
   };
 
   return (
-    <div className="invoice-page">
-      <h1>إصدار فاتورة</h1>
+    <div className="">
+      <h1 className="text-center">إصدار فاتورة</h1>
 
       <CustomerForm
         customerName={customerName}
@@ -92,12 +92,14 @@ function InvoicePage() {
         setItems={setItems}
       />
 
-      <h2 style={{ marginTop: 20 }}>
+      <h2
+      className="bg-green-500 rounded-2xl p-2"
+      style={{ marginTop: 20 }}>
         الإجمالي : {total.toLocaleString()} جنيه
       </h2>
 
       <button
-        className="add-btn"
+        className="bg-blue-500 p-2 w-full rounded-2xl text-amber-50"
         style={{
           width: "100%",
           marginTop: "20px",

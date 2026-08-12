@@ -52,6 +52,32 @@ function ItemForm({ setItems }) {
     }, 0);
   };
 
+  // const handleAddItem = () => {
+  //   if (
+  //     !item.groupCode ||
+  //     !item.itemCode ||
+  //     !item.quantity ||
+  //     !item.weight ||
+  //     !item.price
+  //   ) {
+  //     alert("برجاء إدخال جميع البيانات");
+  //     return;
+  //   }
+
+  //   setItems((prev) => [
+  //     ...prev,
+  //     {
+  //       groupCode: Number(item.groupCode),
+  //       itemCode: Number(item.itemCode),
+  //       quantity: Number(item.quantity),
+  //       weight: Number(item.weight),
+  //       price: Number(item.price),
+  //     },
+  //   ]);
+
+  //   clearForm();
+  // };
+
   const handleAddItem = () => {
     if (
       !item.groupCode ||
@@ -64,27 +90,33 @@ function ItemForm({ setItems }) {
       return;
     }
 
-    setItems((prev) => [
-      ...prev,
-      {
-        groupCode: Number(item.groupCode),
-        itemCode: Number(item.itemCode),
-        quantity: Number(item.quantity),
-        weight: Number(item.weight),
-        price: Number(item.price),
-      },
-    ]);
+    const quantity = Number(item.quantity);
+    const weight = Number(item.weight);
+    const price = Number(item.price);
+
+    const weightPerItem = weight / quantity;
+    const pricePerItem = price / quantity;
+
+    const newItems = Array.from({ length: quantity }, () => ({
+      groupCode: Number(item.groupCode),
+      itemCode: Number(item.itemCode),
+      quantity: 1,
+      weight: weightPerItem,
+      price: pricePerItem,
+    }));
+
+    setItems((prev) => [...prev, ...newItems]);
 
     clearForm();
   };
-
+  
   return (
     <div className="flex flex-col sm:flex-row flex-wrap">
       <div className="flex flex-col p-1">
         <label>كود المجموعة :</label>
 
         <input
-        className="bg-white rounded-2xl w-24 p-1.5"
+          className="bg-white rounded-2xl w-24 p-1.5"
           ref={groupCodeRef}
           name="groupCode"
           maxLength={3}
@@ -104,7 +136,7 @@ function ItemForm({ setItems }) {
         <label>كود الصنف :</label>
 
         <input
-        className="bg-white rounded-2xl w-24 p-1.5 "
+          className="bg-white rounded-2xl w-24 p-1.5 "
           ref={itemCodeRef}
           name="itemCode"
           value={item.itemCode}
@@ -117,7 +149,7 @@ function ItemForm({ setItems }) {
         <label>العدد :</label>
 
         <input
-        className="bg-white rounded-2xl w-24 p-1.5"
+          className="bg-white rounded-2xl w-24 p-1.5"
           ref={quantityRef}
           name="quantity"
           type="number"
@@ -131,7 +163,7 @@ function ItemForm({ setItems }) {
         <label>الوزن :</label>
 
         <input
-        className="bg-white rounded-2xl w-24 p-1.5"
+          className="bg-white rounded-2xl w-24 p-1.5"
           ref={weightRef}
           name="weight"
           type="number"
@@ -146,7 +178,7 @@ function ItemForm({ setItems }) {
         <label>القيمة :</label>
 
         <input
-        className="bg-white rounded-2xl w-40 p-1.5"
+          className="bg-white rounded-2xl w-40 "
           ref={priceRef}
           name="price"
           type="number"
@@ -161,7 +193,10 @@ function ItemForm({ setItems }) {
         />
       </div>
 
-      <button className="bg-blue-500 text-amber-50 w-32 rounded-3xl mx-auto mt-6 text-xl p-1.5 hover:bg-blue-700 cursor-pointer" onClick={handleAddItem}>
+      <button
+        className="bg-blue-500 text-amber-50 w-32 rounded-3xl mx-auto mt-6 text-xl p-1.5 hover:bg-blue-700 cursor-pointer"
+        onClick={handleAddItem}
+      >
         إضافة الصنف
       </button>
     </div>

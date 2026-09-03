@@ -32,7 +32,8 @@ function CustomerForm({ customerName, setCustomerName, phone, setPhone }) {
         <input
           className="bg-white rounded-2xl p-1.5"
           ref={phoneRef}
-          type="text"
+          type="tel"
+          inputMode="numeric"
           maxLength={11}
           value={phone}
           onChange={(e) => {

@@ -304,15 +304,15 @@ function ItemForm({ setItems }) {
                         <td className="border p-3">
 
                           <input
-                            type="number"
-                            min="0"
+                            type="text"
+                            inputMode="numeric"
                             disabled={selection.quantity === 0}
                             value={selection.price}
                             onChange={(e) =>
                               updateProductPrice(
                                 "coin",
                                 index,
-                                e.target.value
+                                e.target.value.replace(/\D/g, "")
                               )
                             }
                             className="bg-white border rounded-xl p-2 w-32 disabled:bg-gray-200 disabled:cursor-not-allowed"
@@ -437,15 +437,15 @@ function ItemForm({ setItems }) {
                         <td className="border p-3">
 
                           <input
-                            type="number"
-                            min="0"
+                            type="text"
+                            inputMode="numeric"
                             disabled={selection.quantity === 0}
                             value={selection.price}
                             onChange={(e) =>
                               updateProductPrice(
                                 "bar",
                                 index,
-                                e.target.value
+                                e.target.value.replace(/\D/g, "")
                               )
                             }
                             className="bg-white border rounded-xl p-2 w-32 disabled:bg-gray-200 disabled:cursor-not-allowed"
@@ -495,6 +495,8 @@ function ItemForm({ setItems }) {
               className="bg-white rounded-2xl w-24 p-1.5"
               ref={groupCodeRef}
               name="groupCode"
+              type="text"
+              inputMode="numeric"
               maxLength={3}
               value={item.groupCode}
               onChange={(e) => {
@@ -517,6 +519,8 @@ function ItemForm({ setItems }) {
               className="bg-white rounded-2xl w-24 p-1.5"
               ref={itemCodeRef}
               name="itemCode"
+              type="text"
+              inputMode="numeric"
               value={item.itemCode}
               onChange={handleChange}
               onKeyDown={(e) =>
@@ -533,6 +537,7 @@ function ItemForm({ setItems }) {
               ref={quantityRef}
               name="quantity"
               type="number"
+              inputMode="numeric"
               min="1"
               value={item.quantity}
               onChange={handleChange}
@@ -549,8 +554,8 @@ function ItemForm({ setItems }) {
               className="bg-white rounded-2xl w-24 p-1.5"
               ref={weightRef}
               name="weight"
-              type="number"
-              step="0.001"
+              type="text"
+              inputMode="decimal"
               value={item.weight}
               onChange={handleChange}
               onKeyDown={(e) =>
@@ -566,7 +571,8 @@ function ItemForm({ setItems }) {
               className="bg-white rounded-2xl w-40 p-1.5"
               ref={priceRef}
               name="price"
-              type="number"
+              type="text"
+              inputMode="decimal"
               value={item.price}
               onChange={handleChange}
               onKeyDown={(e) => {

@@ -1,5 +1,17 @@
 export const bars = [
   {
+    name: "0.25 جرام",
+    groupCode: 250,
+    itemCode: 1025,
+    weight: 0.25,
+  },
+  {
+    name: "0.5 جرام",
+    groupCode: 250,
+    itemCode: 1050,
+    weight: 0.5,
+  },
+  {
     name: "1 جرام",
     groupCode: 250,
     itemCode: 11,
